@@ -15,7 +15,7 @@ function Router() {
 
 	return (
 		<>
-			<Header />
+			<Header user={user} />
 			<Routes>
 				<Route path="/" element={<Main />} />
 				<Route path="/home" element={<Home />} />
@@ -28,3 +28,4 @@ function Router() {
 }
 
 export default Router;
+

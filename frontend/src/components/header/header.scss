@@ -9,6 +9,10 @@
 	display: none;
 }
 
+.block {
+	display: block;
+}
+
 /* header */
 .Header {
 	background-color: $primary-color;
@@ -74,7 +78,6 @@
 	color: $base-color;
 	top: 60px;
 	right: 0;
-	display: none;
 	position: absolute;
 	background-color: $primary-color;
 	min-width: 160px;
@@ -82,9 +85,9 @@
 	z-index: 1;
 }
 
-.dropdown:hover .dropdown-content {
-	display: block;
-}
+// .dropdown:hover .dropdown-content {
+// 	display: block;
+// }
 
 /* menu icon */
 .Header .menu-icon {
@@ -179,3 +182,4 @@
 		top: 354px;
 	}
 }
+

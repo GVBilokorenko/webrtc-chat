@@ -2,13 +2,11 @@ import "./header.scss";
 import { Link } from "react-router-dom";
 import auth from "../../fireBase";
 import { useState } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 
-function Header() {
-	const [user, setUser] = useState({});
-	onAuthStateChanged(auth, currentUser => {
-		setUser(currentUser);
-	});
+function Header(props) {
+	const [dropdownShown, setDropdownShown] = useState(false);
+
 	return (
 		<div className="Header">
 			<Link className="a logo" to="/">
@@ -40,12 +38,12 @@ function Header() {
 					</Link>
 				</li>
 				<li>
-					<div className="dropdown a">
+					<div className="dropdown a" onClick={() => setDropdownShown(dropdownShown => !dropdownShown)}>
 						<button className="dropbtn">
-							<i className="fa-light fa-circle-user fa-2xl"></i> {user?.email}
+							<i className="fa-light fa-circle-user fa-2xl"></i> {props.user?.email}
 						</button>
-						<div className="dropdown-content">
-							{user ? (
+						<div className={dropdownShown ? "dropdown-content block" : "dropdown-content none"}>
+							{props.user ? (
 								<>
 									<Link className="a" to="/profile">
 										My profile
@@ -68,3 +66,4 @@ function Header() {
 }
 
 export default Header;
+
