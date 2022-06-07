@@ -1,0 +1,13 @@
+@import "../../common/colors.scss";
+
+.Main {
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $base-color;
+	font-size: 70px;
+	font-weight: bolder;
+	font-variant: small-caps;
+	font-family: "Playfair Display", serif;
+}

@@ -1,20 +1,27 @@
 import "./header.scss";
 import { Link } from "react-router-dom";
+import auth from "../../fireBase";
+import { useState } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 function Header() {
+	const [user, setUser] = useState({});
+	onAuthStateChanged(auth, currentUser => {
+		setUser(currentUser);
+	});
 	return (
 		<div className="Header">
 			<Link className="a logo" to="/">
 				Webrtc-Chat
 			</Link>
-			<input class="menu-btn" type="checkbox" id="menu-btn" />
-			<label class="menu-icon" for="menu-btn">
-				<span class="navicon"></span>
+			<input className="menu-btn" type="checkbox" id="menu-btn" />
+			<label className="menu-icon" htmlFor="menu-btn">
+				<span className="navicon"></span>
 			</label>
-			<ul class="menu">
+			<ul className="menu">
 				<li>
-					<Link className="a" to="/">
-						Our Work
+					<Link className="a" to="/home">
+						Home
 					</Link>
 				</li>
 				<li>
@@ -33,18 +40,25 @@ function Header() {
 					</Link>
 				</li>
 				<li>
-					<div class="dropdown a">
-						<button class="dropbtn">Dropdown</button>
-						<div class="dropdown-content">
-							<Link className="a" to="/">
-								Our Work
-							</Link>
-							<Link className="a" to="/">
-								Our Work
-							</Link>
-							<Link className="a" to="/">
-								Our Work
-							</Link>
+					<div className="dropdown a">
+						<button className="dropbtn">
+							<i className="fa-light fa-circle-user fa-2xl"></i> {user?.email}
+						</button>
+						<div className="dropdown-content">
+							{user ? (
+								<>
+									<Link className="a" to="/profile">
+										My profile
+									</Link>
+									<Link className="a" to="/" onClick={() => signOut(auth)}>
+										Log out
+									</Link>
+								</>
+							) : (
+								<Link className="a" to="/auth">
+									Sign in
+								</Link>
+							)}
 						</div>
 					</div>
 				</li>

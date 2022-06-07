@@ -2,7 +2,11 @@
 
 /* links */
 .a {
-	color: $black-color;
+	color: $base-color;
+}
+
+.none {
+	display: none;
 }
 
 /* header */
@@ -10,8 +14,10 @@
 	background-color: $primary-color;
 	box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
 	position: fixed;
-	width: 100%;
+	width: 100vw;
 	z-index: 3;
+	top: 0;
+	min-width: 300px;
 
 	.logo {
 		display: block;
@@ -42,47 +48,42 @@
 	}
 }
 
-/* Style The Dropdown Button */
-.dropbtn {
-	margin: 0;
-	font-size: 16px;
-	border: none;
-	cursor: pointer;
-	background-color: transparent;
-	color: $black-color;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-	color: $black-color;
-	display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-	color: $black-color;
-	top: 60px;
-	right: 0;
-	display: none;
-	position: absolute;
-	background-color: $primary-color;
-	min-width: 160px;
-	border: 1px solid $black-color;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-	z-index: 1;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-	display: block;
-}
-
 /* menu */
 
 .Header .menu {
 	clear: both;
 	max-height: 0;
 	transition: max-height 0.2s ease-out;
+}
+
+/* Dropdown menu */
+.dropbtn {
+	margin: 0;
+	font-size: 16px;
+	cursor: pointer;
+	background-color: transparent;
+	color: $base-color;
+}
+
+.dropdown {
+	color: $base-color;
+	display: inline-block;
+}
+
+.dropdown-content {
+	color: $base-color;
+	top: 60px;
+	right: 0;
+	display: none;
+	position: absolute;
+	background-color: $primary-color;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
 }
 
 /* menu icon */
@@ -95,7 +96,7 @@
 	user-select: none;
 
 	.navicon {
-		background: $black-color;
+		background: $base-color;
 		display: block;
 		height: 2px;
 		position: relative;
@@ -105,7 +106,7 @@
 
 	.navicon:before,
 	.navicon:after {
-		background: $black-color;
+		background: $base-color;
 		content: "";
 		display: block;
 		height: 100%;
@@ -170,8 +171,10 @@
 }
 
 @media (max-width: 48em) {
+	.Header {
+		overflow-y: auto;
+	}
 	.dropdown-content {
-		border: none;
 		left: 0;
 		top: 354px;
 	}
