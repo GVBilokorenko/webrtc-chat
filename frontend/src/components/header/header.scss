@@ -1,16 +1,25 @@
 @import "../../common/colors.scss";
 
-/* links */
+/* Links */
 .a {
 	color: $base-color;
 }
 
+/* Dynamic styling */
 .none {
 	display: none;
 }
 
 .block {
 	display: block;
+}
+
+.mh480 {
+	max-height: 480px;
+}
+
+.mh0 {
+	max-height: 0;
 }
 
 /* header */
@@ -53,10 +62,8 @@
 }
 
 /* menu */
-
 .Header .menu {
 	clear: both;
-	max-height: 0;
 	transition: max-height 0.2s ease-out;
 }
 
@@ -134,7 +141,7 @@
 	}
 
 	.menu-btn:checked ~ .menu {
-		max-height: 480px;
+		// max-height: 480px;
 	}
 
 	.menu-btn:checked ~ .menu-icon .navicon {
@@ -175,7 +182,7 @@
 
 @media (max-width: 48em) {
 	.Header {
-		overflow-y: auto;
+		overflow-y: visible;
 	}
 	.dropdown-content {
 		left: 0;
