@@ -8,12 +8,7 @@ const socket = io.connect("http://localhost:4000");
 function Home(props) {
   const [chat, setChat] = useState([]);
 
-  const {
-    register,
-    // eslint-disable-next-line no-unused-vars
-    formState: { errors },
-    handleSubmit
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     mode: "onChange"
   });
 
@@ -65,4 +60,3 @@ function Home(props) {
 }
 
 export default Home;
-
